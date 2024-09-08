@@ -28,7 +28,8 @@ def draw_bar_plot():
     df_bar['year'] = df.index.year
     df_bar = df_bar.groupby(by=['year','month'])['value'].mean().unstack()
     # Draw bar plot
-
+    fig, ax = plt.subplots(figsize=(15,5))
+    df_bar.plot(ax=ax, kind='bar', ylabel='Average Page Views', xlabel='Years').legend(title='Months', labels=('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'))
 
 
 
